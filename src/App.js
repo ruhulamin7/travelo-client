@@ -10,6 +10,10 @@ import Login from "./components/pages/Login/Login/Login";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Register from "./components/pages/Login/Register/Register";
 import PrivateRoute from "./components/pages/Login/PrivateRoute/PrivateRoute";
+import AdminRoute from "./components/pages/Login/AdminRoute/AdminRoute";
+import AdminPanel from "./components/pages/Dashboard/AdminPanel/AdminPanel";
+import Footer from "./components/shared_components/Footer/Footer";
+import NotFound from "./components/pages/NotFound/NotFound";
 function App() {
   return (
     <AuthProvider>
@@ -29,15 +33,21 @@ function App() {
             <PostBlog />
           </Route>
           <PrivateRoute exact path="/blogDetails/:blogId">
-            <BlogDetails></BlogDetails>
+            <BlogDetails />
           </PrivateRoute>
+          <AdminRoute path="/dashboard">
+            <AdminPanel />
+          </AdminRoute>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="*" component={NotFound} /> // anothe way to invoke a
+          component
         </Switch>
+        <Footer />
       </Router>
     </AuthProvider>
   );

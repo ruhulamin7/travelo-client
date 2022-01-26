@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Blog.css";
 
 const Blog = (props) => {
-  const { _id, name, description, price, img, duration } = props.tour;
+  const { _id, name, description, price, img } = props.blog;
   return (
     <div>
       <Col className="main-card mb-5">

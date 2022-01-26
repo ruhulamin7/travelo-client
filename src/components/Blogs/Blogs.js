@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import Blog from "../Blog/Blog";
 import "./Blogs.css";
 
@@ -11,7 +11,9 @@ const Blogs = () => {
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
-
+  if (!blogs) {
+    return <Spinner animation="grow" variant="warning" />;
+  }
   return (
     <div className="row">
       <div className="col-md-2 side_bar ">
@@ -31,7 +33,7 @@ const Blogs = () => {
         </div>
         <Row lg={2} md={2} sm={2} xs={1} className="blog-container text-start">
           {blogs.map((blog) => (
-            <Blog key={blog._id} tour={blog}></Blog>
+            <Blog key={blog._id} blog={blog}></Blog>
           ))}
         </Row>
       </Container>
