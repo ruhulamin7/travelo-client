@@ -14,7 +14,7 @@ const Blogs = () => {
 
   return (
     <div className="row">
-      <div className="col-md-3 side_bar ">
+      <div className="col-md-2 side_bar ">
         <h3 className="my-5">Filter Blog</h3>
         <label for="cars">Choose a car:</label>
         <select name="cars" id="cars" form="carform">
@@ -24,7 +24,7 @@ const Blogs = () => {
           <option value="audi">Audi</option>
         </select>
       </div>
-      <div className="col-md-9 blog_content">
+      <Container className="col-md-9 blog_content">
         <div className="my-5">
           <h2 className="text-warning ">Popular Tour</h2>
           <p>We have a unique way of meeting your adventurous expectations!</p>
@@ -34,7 +34,7 @@ const Blogs = () => {
             <Blog key={blog._id} tour={blog}></Blog>
           ))}
         </Row>
-      </div>
+      </Container>
     </div>
   );
 };

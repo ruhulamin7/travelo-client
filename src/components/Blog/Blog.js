@@ -35,8 +35,8 @@ const Blog = (props) => {
                     <b className="price">Price: ${price} </b>
                   </div>
 
-                  <NavLink to={`/booking/${_id}`}>
-                    <button className="btn btn-warning">Buy Now</button>
+                  <NavLink to={`/blogDetails/${_id}`}>
+                    <button className="btn btn-warning">View Details</button>
                   </NavLink>
                 </div>
               </div>

@@ -1,12 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import Blogs from "../../Blogs/Blogs";
 
 const AllBlogs = () => {
-  return (
-    <Container>
-      <h2>This is All blogs</h2>
-    </Container>
-  );
+  return <Blogs></Blogs>;
 };
 
 export default AllBlogs;
