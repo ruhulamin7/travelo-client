@@ -1,0 +1,18 @@
+.item-cntainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-menu .logo {
+  margin: 10px 0px;
+}
+.logo img {
+  width: 150px;
+}
+.nav-menu a {
+  color: #ffaf00;
+  text-decoration: none;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
