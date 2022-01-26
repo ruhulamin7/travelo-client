@@ -1,12 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import Slider from "../Slider/Slider";
 
 const Home = () => {
-  return (
-    <Container>
-      <h2>This is home</h2>
-    </Container>
-  );
+  return <Slider />;
 };
 
 export default Home;
