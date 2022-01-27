@@ -1,11 +1,21 @@
 import React from "react";
-import { Card, Col, Container } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Rating from "react-rating";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Blog.css";
 
 const Blog = (props) => {
-  const { _id, name, description, price, img } = props.blog;
+  const {
+    _id,
+    title,
+    description,
+    cost,
+    img,
+    rating,
+    location,
+    category,
+    travellerInfo,
+  } = props.blog;
   return (
     <div>
       <Col className="main-card mb-5">
@@ -16,23 +26,30 @@ const Blog = (props) => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title">{title}</h5>
+                <p className="price">location: {location} </p>
                 <p className="card-text">{description.slice(0, 80)}</p>
                 <div className="card-bottom">
                   <div>
-                    <span>{price} </span>
+                    <span>{rating} </span>
                     <Rating
-                      initialRating={`${price}`}
+                      initialRating={`${rating}`}
                       readonly
                       fullSymbol="fas fa-star text-warning"
                       emptySymbol="far fa-star"
                     ></Rating>
                   </div>
-                  <span>Brand: </span>
+                  <span className="price">Cost: ${cost} </span>
                 </div>
                 <div className="card-bottom">
                   <div>
-                    <b className="price">Price: ${price} </b>
+                    <span>Category: {category} </span>
+                  </div>
+                </div>
+
+                <div className="card-bottom">
+                  <div>
+                    <small className="price">Traveller: {travellerInfo} </small>
                   </div>
 
                   <NavLink to={`/blogDetails/${_id}`}>

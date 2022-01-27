@@ -1,52 +1,27 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+
 import { Col } from "react-bootstrap";
 import Rating from "react-rating";
-import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "@mui/material";
 
 const SingleBlog = (props) => {
-  const { _id, name, description, price, img } = props.blog;
-  const [blogs, setBlogs] = useState([]);
+  const {
+    _id,
+    title,
+    description,
+    cost,
+    img,
+    rating,
+    location,
+    travellerInfo,
+    status,
+  } = props.blog;
 
-  useEffect(() => {
-    fetch(`https://murmuring-ravine-72524.herokuapp.com/blogs`)
-      .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, [blogs]);
-
-  // delete order
-  const handleDeleteOrder = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const url = `https://murmuring-ravine-72524.herokuapp.com/orders/${id}`;
-        fetch(url, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Order has been deleted.", "success");
-            }
-          });
-      }
-    });
-  };
-
-  // update order
+  // update blog
   const handleUpdateStatus = (id) => {
     axios
-      .put(`https://murmuring-ravine-72524.herokuapp.com/orders/${id}`, {
+      .put(`http://localhost:5000/blogs/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -60,6 +35,23 @@ const SingleBlog = (props) => {
       });
   };
 
+  // delete blog
+  const handleDeleteBlog = (id) => {
+    const proceed = window.confirm("Are you sure to Delete it?");
+    if (proceed) {
+      const url = `http://localhost:5000/blogs/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Order has been deleted.", "success");
+          }
+        });
+    }
+  };
+
   return (
     <div>
       <Col className="main-card mb-5">
@@ -70,32 +62,33 @@ const SingleBlog = (props) => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title">{title}</h5>
+                <h6>Location: {location}</h6>
                 <p className="card-text">{description.slice(0, 80)}</p>
                 <div className="card-bottom">
                   <div>
-                    <span>{price} </span>
+                    <span>Rating: {rating} </span>
                     <Rating
-                      initialRating={`${price}`}
+                      initialRating={`${rating}`}
                       readonly
                       fullSymbol="fas fa-star text-warning"
                       emptySymbol="far fa-star"
                     ></Rating>
                   </div>
-                  <span className="price">Price: ${price} </span>
+                  <strong className="price">Cost: ${cost} </strong>
                 </div>
                 <div className="card-bottom">
+                  <small>Traveller: {travellerInfo}</small>
                   <button
-                    class="btn btn-warning"
+                    className="btn btn-warning"
                     onClick={() => handleUpdateStatus(_id)}
                   >
-                    Pending
-                    {blogs.status}
+                    {status}
                   </button>
 
                   <button
                     className="btn btn-danger"
-                    onClick={() => handleDeleteOrder(_id)}
+                    onClick={() => handleDeleteBlog(_id)}
                   >
                     Delete <DeleteIcon />
                   </button>

@@ -9,7 +9,7 @@ const DashboardHome = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-inner">
-        <h1 className="text-center mb-5">Welcome to Dashboard !</h1>
+        <h1 className="text-center mb-5">Welcome to the Dashboard !</h1>
         <Row md={2} sm={1} xs={1} className="dahboard">
           <Col className="dashboard-left">
             <img src={dashboard} alt="" />

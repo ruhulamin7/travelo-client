@@ -5,23 +5,13 @@ import PostBlog from "../../PostBlog/PostBlog";
 import ManageBlogs from "../ManageBlogs/ManageBlogs";
 import DashboardHome from "../DashboardHome.js/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
-// import BloodRequests from "../BloodRequests/BloodRequests";
-// import Donor from "../../Donor/Donor";
-// import Home from "../AdminHome/AdminHome";
-// import RequestHistory from "../RequestHistory/RequestHistory";
+
 import "./AdminPanel.css";
-// import MakeAdmin from "../MakeAdmin/MakeAdmin";
-// import DonationRequests from "../DonationRequests/DonationRequests";
 
 const AdminPanel = () => {
   let { path, url } = useRouteMatch();
   return (
     <div className="m-0">
-      {/* Admin panel Heding start */}
-      <div className=" head-line">
-        <h4 className="blood-heading"> Admin Dashboard</h4>
-      </div>
-      {/* Admin panel Heding end */}
       <div className="row dashbord-fild ">
         <div className="col-lg-2 col-sm-12 dashbord-list">
           <div>
@@ -32,12 +22,12 @@ const AdminPanel = () => {
             </Link>
             <Link className="link-style" to={`${url}/manageBlogs`}>
               <li className="list-item">
-                <i className="fas fa-user-alt list-icon"></i>Manage All Blogs
+                <i class="fas fa-tasks"></i> &nbsp;Manage All Blogs
               </li>
             </Link>
             <Link className="link-style" to={`${url}/postBlog`}>
               <li className="list-item">
-                <i className="fas fa-user-alt list-icon"></i>Post a Blog
+                <i className="fas fa-pen-square"></i> &nbsp;Post a Blog
               </li>
             </Link>
 
@@ -59,12 +49,6 @@ const AdminPanel = () => {
             </Route>
             <Route exact path={`${path}/postBlog`}>
               <PostBlog />
-            </Route>
-            <Route exact path={`${path}/bloodRequests`}>
-              {/* <BloodRequests></BloodRequests> */}
-            </Route>
-            <Route exact path={`${path}/requestHistory`}>
-              {/* <RequestHistory></RequestHistory> */}
             </Route>
             <Route exact path={`${path}/makeAdmin`}>
               <MakeAdmin />

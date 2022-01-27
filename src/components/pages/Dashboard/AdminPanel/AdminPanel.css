@@ -40,6 +40,10 @@
   /* height: 584px; */
   padding-top: 17px;
 }
+.dashbord-list li {
+  font-family: "Roboto", sans-serif;
+  padding-left: 20px;
+}
 
 .list-item {
   list-style: none;
