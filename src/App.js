@@ -29,15 +29,15 @@ function App() {
           <Route exact path="/allBlogs">
             <AllBlogs />
           </Route>
-          <Route exact path="/postBlog">
+          <PrivateRoute exact path="/postBlog">
             <PostBlog />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute exact path="/blogDetails/:blogId">
             <BlogDetails />
           </PrivateRoute>
-          <AdminRoute path="/dashboard">
+          <Route path="/dashboard">
             <AdminPanel />
-          </AdminRoute>
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

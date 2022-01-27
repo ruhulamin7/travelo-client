@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   updateProfile,
+  sendEmailVerification,
   signOut,
 } from "firebase/auth";
 
@@ -64,7 +65,10 @@ const useFirebase = () => {
           });
 
         history.push("/");
+        // registration modal
         registrationModal();
+        // send email verification mail
+        verifyEmail();
       })
       .catch((error) => {
         setError(error.message);
@@ -73,6 +77,12 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser).then((result) => {
+      // Email verification sent!
+      console.log(result);
+    });
+  };
   const loginUser = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
@@ -116,7 +126,7 @@ const useFirebase = () => {
 
   const saveUserToDatabase = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://murmuring-ravine-72524.herokuapp.com/users", {
+    fetch("http://localhost:5000/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -127,7 +137,7 @@ const useFirebase = () => {
 
   // getting admin user
   useEffect(() => {
-    fetch(`https://murmuring-ravine-72524.herokuapp.com/users/${user.email}`)
+    fetch(`http://localhost:5000/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);

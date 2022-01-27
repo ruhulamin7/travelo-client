@@ -25,7 +25,7 @@ const Blogs = () => {
   return (
     <div className="row">
       <div className="col-md-3 side_bar ">
-        <h3 className="my-5">Latest Blog</h3>
+        <h3 className="my-5">Top Rated Spots</h3>
         {/* <h3 className="my-5">Filter Blog</h3>
         <form action="">
           <label for="blogs">Choose filter category:</label>

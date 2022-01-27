@@ -5,7 +5,7 @@ import logo from "../../../images/logo/logo.png";
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 const Header = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, admin } = useAuth();
   return (
     <div className="navbar-main">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -27,7 +27,7 @@ const Header = () => {
                 Post a Blog
               </Nav.Link>
 
-              {user.email && (
+              {admin && (
                 <Nav.Link as={Link} to="/dashboard">
                   Dashboard
                 </Nav.Link>
