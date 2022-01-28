@@ -16,7 +16,9 @@ const Blogs = () => {
   console.log(approvedBlog);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs?page=${page}&&size=${pageSize}`)
+    fetch(
+      `https://pure-bastion-95266.herokuapp.com/blogs?page=${page}&&size=${pageSize}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.blogs);

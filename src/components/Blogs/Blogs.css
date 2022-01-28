@@ -65,3 +65,6 @@ body {
   margin: auto;
   margin-bottom: 100px;
 }
+.pagination strong {
+  margin-left: 20px;
+}

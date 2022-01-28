@@ -10,7 +10,7 @@ const BlogDetails = () => {
   const [blog, setBlog] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs/${blogId}`)
+    fetch(`https://pure-bastion-95266.herokuapp.com/blogs/${blogId}`)
       .then((res) => res.json())
       .then((data) => setBlog(data));
   }, []);

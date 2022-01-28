@@ -12,12 +12,14 @@ const PostBlog = () => {
     if (admin) {
       data.status = "Approved";
     }
-    axios.post("http://localhost:5000/blogs", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Blog added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://pure-bastion-95266.herokuapp.com/blogs", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Blog added successfully");
+          reset();
+        }
+      });
   };
   return (
     <Container>

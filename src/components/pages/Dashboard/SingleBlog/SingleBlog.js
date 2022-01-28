@@ -23,7 +23,7 @@ const SingleBlog = (props) => {
   // update blog
   const handleUpdateStatus = (id) => {
     axios
-      .put(`http://localhost:5000/blogs/${id}`, {
+      .put(`https://pure-bastion-95266.herokuapp.com/blogs/${id}`, {
         status: "Approved",
       })
       .then((res) => {
@@ -41,7 +41,7 @@ const SingleBlog = (props) => {
   const handleDeleteBlog = (id) => {
     const proceed = window.confirm("Are you sure to Delete it?");
     if (proceed) {
-      const url = `http://localhost:5000/blogs/${id}`;
+      const url = `https://pure-bastion-95266.herokuapp.com/blogs/${id}`;
       fetch(url, {
         method: "DELETE",
       })

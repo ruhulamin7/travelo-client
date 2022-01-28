@@ -7,7 +7,7 @@ const ManageBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://pure-bastion-95266.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data.blogs));
   }, [blogs]);
