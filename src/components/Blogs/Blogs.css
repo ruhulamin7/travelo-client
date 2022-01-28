@@ -40,8 +40,28 @@ body {
   position: relative;
 }
 
+.pagination {
+  margin-left: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 2px solid blanchedalmond;
+  padding: 10px;
+}
+.pagination button {
+  margin-left: 15px;
+  border: 1px solid blak;
+  padding: 0 15px;
+}
+.pagination .selected {
+  background-color: chocolate;
+}
+
 /* @media screen and (max-width: 768px) {
   .side_bar {
     display: none;
   }
 } */
+.loader {
+  margin: auto;
+  margin-bottom: 100px;
+}

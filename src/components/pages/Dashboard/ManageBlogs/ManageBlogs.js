@@ -9,7 +9,7 @@ const ManageBlogs = () => {
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
+      .then((data) => setBlogs(data.blogs));
   }, [blogs]);
 
   const approvedBlog = blogs.filter((blog) => blog.status === "Approved");
@@ -33,6 +33,17 @@ const ManageBlogs = () => {
           </div>
           <hr />
         </div>
+
+        {blogs.length === 0 && (
+          <button class="btn btn-primary loader" type="button" disabled>
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </button>
+        )}
         <Row lg={1} md={1} sm={1} xs={1} className="blog-container text-start">
           {blogs.map((blog) => (
             <SingleBlog key={blog._id} blog={blog}></SingleBlog>
