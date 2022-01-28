@@ -4,10 +4,12 @@ import { Col } from "react-bootstrap";
 import Rating from "react-rating";
 import Swal from "sweetalert2";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "./Singleblog.css";
 
 const SingleBlog = (props) => {
   const {
     _id,
+    date,
     title,
     description,
     cost,
@@ -63,7 +65,10 @@ const SingleBlog = (props) => {
             <div className="col-md-8">
               <div className="card-body">
                 <h5 className="card-title">{title}</h5>
-                <h6>Location: {location}</h6>
+                <div className="location_date">
+                  <h6>Location: {location}</h6>
+                  <h6>Date: {date}</h6>
+                </div>
                 <p className="card-text">{description.slice(0, 80)}</p>
                 <div className="card-bottom">
                   <div>

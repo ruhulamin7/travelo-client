@@ -22,7 +22,7 @@ const AdminPanel = () => {
             </Link>
             <Link className="link-style" to={`${url}/manageBlogs`}>
               <li className="list-item">
-                <i class="fas fa-tasks"></i> &nbsp;Manage All Blogs
+                <i className="fas fa-tasks"></i> &nbsp;Manage All Blogs
               </li>
             </Link>
             <Link className="link-style" to={`${url}/postBlog`}>

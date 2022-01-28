@@ -38,8 +38,8 @@ const Blogs = () => {
           <button>Filter</button>
         </form> */}
         {latestBlog.slice(0, 4).map((blog) => (
-          <div className="card side_bar_card">
-            <img src={blog.img} class="card-img-top" alt="..." />
+          <div key={blog._id} className="card side_bar_card">
+            <img src={blog.img} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">{blog.title}</h5>
               <span> {blog.rating} </span>
@@ -63,7 +63,7 @@ const Blogs = () => {
           <h2 className="text-warning ">Travellers Blog</h2>
           <p>We have a unique way of meeting your adventurous expectations!</p>
         </div>
-        <Row lg={2} md={2} sm={2} xs={1} className="blog-container text-start">
+        <Row lg={1} md={1} sm={1} xs={1} className="blog-container text-start">
           {approvedBlog.map((blog) => (
             <Blog key={blog._id} blog={blog}></Blog>
           ))}

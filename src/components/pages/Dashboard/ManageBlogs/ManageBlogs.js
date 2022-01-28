@@ -24,13 +24,14 @@ const ManageBlogs = () => {
         <div className="my-5">
           <h2 className="text-warning ">All Blogs</h2>
           <hr />
-          <div className="total_blog">
-            <h4>Total Blogs: {blogs.length}</h4>
-            <h4>Approved Blogs: {approvedBlog.length}</h4>
-            <h4>Pending Blogs: {pendingBlog.length}</h4>
+          <div className="total_blog bg-dark rounded  p-3 ">
+            <h4 className="text-warning ">Total Blogs: {blogs.length}</h4>
+            <h4 className="text-success ">
+              Approved Blogs: {approvedBlog.length}
+            </h4>
+            <h4 className="text-danger">Pending Blogs: {pendingBlog.length}</h4>
           </div>
           <hr />
-          <p>We have a unique way of meeting your adventurous expectations!</p>
         </div>
         <Row lg={1} md={1} sm={1} xs={1} className="blog-container text-start">
           {blogs.map((blog) => (

@@ -32,17 +32,17 @@ const PostBlog = () => {
             {...register("title", { required: true })}
             placeholder="Blog Title"
           />
-
+          <textarea
+            className="description-field"
+            {...register("location", { required: true })}
+            placeholder="Spot / Location"
+          />
           <textarea
             className="description-field"
             {...register("travellerInfo", { required: true })}
             placeholder="Traveller's Name and Address"
           />
-          <textarea
-            className="description-field"
-            {...register("description", { required: true })}
-            placeholder="Travelling Description"
-          />
+
           <select {...register("category", { required: true })}>
             <option>--Select Travelling Category--</option>
             <option value="Solo Tour">Solo Tour</option>
@@ -52,21 +52,30 @@ const PostBlog = () => {
             <option value="Cultural Tour">Cultural Tour</option>
             <option value="Hiking Tours">Hiking Tour</option>
           </select>
+
+          <input
+            type="date"
+            placeholder="Travelling Date"
+            {...register("date", { required: true })}
+          />
+
+          <textarea
+            className="description-field"
+            {...register("description", { required: true })}
+            placeholder="Travelling Description"
+          />
+
           <input
             type="number"
-            {...register("cost")}
+            {...register("cost", { required: true })}
             placeholder="Travelling Cost (in Dollar)"
           />
           <input
             type="number"
-            {...register("rating")}
+            {...register("rating", { required: true })}
             placeholder="Rating the travelling Spot (within 1-5)"
           />
-          <textarea
-            className="description-field"
-            {...register("location", { required: true })}
-            placeholder="Location/Address"
-          />
+
           <button className="btn btn-submit btn-warning" type="submit">
             POST BLOG
           </button>

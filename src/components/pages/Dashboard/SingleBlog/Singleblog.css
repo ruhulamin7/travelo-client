@@ -33,3 +33,8 @@
   margin-bottom: 10px;
   align-items: center;
 }
+.location_date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

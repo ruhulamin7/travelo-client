@@ -26,9 +26,6 @@ function App() {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/allBlogs">
-            <AllBlogs />
-          </Route>
           <PrivateRoute exact path="/postBlog">
             <PostBlog />
           </PrivateRoute>

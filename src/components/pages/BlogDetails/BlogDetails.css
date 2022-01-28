@@ -1,0 +1,7 @@
+.blog-details-container {
+  background-color: rgb(243, 240, 235);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: justify;
+}
