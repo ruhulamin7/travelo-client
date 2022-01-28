@@ -26,7 +26,9 @@ const Blogs = () => {
       });
   }, [page]);
 
-  const latestBlog = blogs.filter((blog) => blog.rating >= 5);
+  const latestBlog = blogs.filter(
+    (blog) => blog.rating >= 5 && blog.status === "Approved"
+  );
 
   return (
     <div className="row">
